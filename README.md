@@ -37,9 +37,9 @@ hosts.j2
 
 ## Requirement
 
-sudo apt update -y
+sudo apt update
 
-sudo apt install curl
+sudo apt install -y curl
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
