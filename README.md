@@ -19,6 +19,7 @@ hosts.j2
 
 ## Requirement
 
+```bash
 sudo apt update
 sudo apt install -y curl
 
@@ -38,7 +39,7 @@ uv pip install ansible
 ansible-galaxy collection install azure.azcollection
 
 uv pip install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements.txt
-
+```
 
 ## Usage
 
