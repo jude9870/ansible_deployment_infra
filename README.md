@@ -15,6 +15,7 @@ Liste des éléments déployés :
 
 A la fin du playbook créé également un hosts.ini de la vm grace a une template Jinja2 pour lancer des playbooks sur la VM: 
 hosts.j2
+Edit : la création hosts.ini n'a pas eu le temps d'être implémenté
 
 ## Requirement
 
