@@ -43,3 +43,7 @@ uv pip install -r ~/.ansible/collections/ansible_collections/azure/azcollection/
 ## Usage
 
 ansible-playbook creation_infra.yml
+
+## Crédits
+
+Judicael, Maxime, Raphael
