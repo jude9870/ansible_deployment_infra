@@ -1,36 +1,36 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Create resource group
+    - name: Creation d'un groupe de ressource
       azure_rm_resourcegroup:
         name: judicael-rg
         location: eastus
 
-    - name: Create virtual network
+    - name: Creation d'un Reseau Virtuel
       azure_rm_virtualnetwork:
         resource_group: judicael-rg
         name: myVnet
         address_prefixes: "10.0.0.0/16"
 
-    - name: Add subnet
+    - name: Ajout d'un sous-reseau
       azure_rm_subnet:
         resource_group: judicael-rg
         name: mySubnet
         address_prefix: "10.0.1.0/24"
         virtual_network: myVnet
 
-    - name: Create public IP address
+    - name: Creation de l'IP Publique
       azure_rm_publicipaddress:
         resource_group: judicael-rg
         allocation_method: Static
         name: myPublicIP
       register: output_ip_address
 
-    - name: Public IP of VM
+    - name: Affichage de l'IP Publique
       debug:
         msg: "The public IP is {{ output_ip_address.state.ip_address }}."
 
-    - name: Create Network Security Group that allows SSH
+    - name: Creation d'un groupe de securite autorisant SSH
       azure_rm_securitygroup:
         resource_group: judicael-rg
         name: myNetworkSecurityGroup
@@ -42,7 +42,7 @@
             priority: 1001
             direction: Inbound
 
-    - name: Create virtual network interface card
+    - name: Creation d'une interface reseau virtuel
       azure_rm_networkinterface:
         resource_group: judicael-rg
         name: myNIC
@@ -54,7 +54,7 @@
             primary: True
         security_group: myNetworkSecurityGroup
 
-    - name: Create VM
+    - name: Creation d'une VM Ubuntu
       azure_rm_virtualmachine:
         resource_group: judicael-rg
         name: myVM
